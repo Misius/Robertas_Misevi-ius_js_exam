@@ -10,5 +10,47 @@ Paspaudus mygtuką "Show users":
 Pastaba: Sukurta kortelė, kurioje yra pateikiama vartotojo informacija, turi 
 būti stilizuota su CSS ir būti responsive;
 -------------------------------------------------------------------------- */
+'use strict';
+console.log('script.js');
 
 const ENDPOINT = 'https://api.github.com/users';
+const btn = document.getElementById('btn');
+const output = document.getElementById('output');
+
+
+
+// =======================================================================================================================================
+
+btn.addEventListener('click', async () => {
+  const dataArr = await getData(ENDPOINT);
+  makeCardList(dataArr);
+});
+
+
+
+function getData(from) {
+  return fetch(from)
+    .then((resp) => resp.json())
+    .then((dataInJs) => dataInJs.data)
+    .catch((err) => console.warn('klaida getData', err));
+}
+
+
+function makeCard(obj) {
+    const divEl = document.createElement('div');
+    divEl.className = 'card';
+    const imgEl = document.createElement('img');
+    imgEl.src = obj.avatar_url;
+    imgEl.alt = obj.login;
+    const pEl = document.createElement('p');
+    pEl.textContent = `${obj.login}`;
+    divEl.append(imgEl, pEl);
+    return divEl;
+}
+
+
+function makeCardList(arr) {
+  output.innerHTML = '';
+//   let arr = null;
+  arr.map((uObj) => makeCard(uObj)).forEach((htmlEl) => output.append(htmlEl));
+}
