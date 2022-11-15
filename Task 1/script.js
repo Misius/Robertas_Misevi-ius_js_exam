@@ -8,3 +8,19 @@ pamatyti jo pateikto svorio kovertavimą į:
 Pastaba: rezultatas turi būti matomas pateikus formą ir atvaizduojamas
 <div id="output"></div> viduje. Gautus atsakymus stilizuokite naudojant CSS;
 ------------------------------------------------------------------- */
+
+const btn = document.getElementById('submit-btn'); 
+
+btn.addEventListener('click', function() {
+    
+    let inputEl = document.getElementById('search').value; 
+    let lb = inputEl * 2.2046;
+    let g = inputEl * 1000;
+    let oz = inputEl * 35.274;
+    const form = document.createElement("p");
+    const content = document.createTextNode(`${lb} pounds, ${g} grams or ${oz} ounces`);
+    form.appendChild(content);
+    console.log('conversion ===', `${lb} pounds ${g} grams ${oz} ounces`);
+    document.getElementById("output").appendChild(form);
+
+});
