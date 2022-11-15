@@ -11,8 +11,10 @@ const audi = {
   color: 'white',
 };
 
-
-
+let arr = [];
 function showObjectKeys() {
-  
+  arr.push(audi);
+  console.log('arr ===', arr);
 }
+
+showObjectKeys();
