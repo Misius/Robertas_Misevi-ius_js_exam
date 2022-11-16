@@ -55,15 +55,73 @@
 .output-cointainer #output {
   width: 80%;
   margin-top: 25px;
-  padding: 30px;
+  padding: 10px;
   border-radius: 5px;
   background-color: #fff;
 }
 
+#output {
+  text-align: center;
+  place-items: center;
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+}
+
+#message {
+  grid-column: span 6;
+}
+
 .card {
-  padding: 1rem;
+  
   box-shadow: 5px 5px 10px rgb(180, 190, 194);
   border: 1px solid rgb(191, 180, 180);
   border-radius: 5px;
-  background-color: snow;
+  background-color: snow; 
+  /* background-color: rgb(151, 150, 150); */
+  width: 200px;
+  margin: 10px;
+  padding: 10px;
+  /* padding: 10px; */
+}
+
+.card img {
+  width: 100%;
+}
+
+.card h3 {
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Responsive */
+
+@media (min-width: 570px) {
+  #output {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media (min-width: 850px) {
+  #output {
+    grid-template-columns: repeat(3,1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  #output {
+    grid-template-columns: repeat(4,1fr);
+  }
+}
+
+@media (min-width: 1550px) {
+
+  #output {
+    grid-template-columns: repeat(5,1fr);
+  }
+}
+
+@media (min-width: 1900px) {
+  #output {
+    grid-template-columns: repeat(6,1fr);
+  }
 }

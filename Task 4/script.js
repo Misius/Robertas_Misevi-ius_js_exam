@@ -10,7 +10,6 @@ būti stilizuota su CSS ir būti responsive;
 
 const ENDPOINT = 'cars.json';
 
-
 function getData() {
     fetch(ENDPOINT)
         .then(response => response.json())
@@ -23,19 +22,5 @@ function getData() {
         })
         .catch((err) => console.warn('klaida getData', err));
 }
+
 getData();
-
-
-function makeCard(obj) { 
-    const divEl = document.createElement('div');
-    divEl.className = 'card';
-    const h3El = document.createElement('h3');
-    h3El.textContent = `${data[obj].brand}`;
-    const pEl = document.createElement('p');
-    pEl.textContent = `${data[obj].models }`;
-    imgEl.src = obj.avatar_url;
-    imgEl.alt = obj.login;
-    
-    divEl.append(h3El, pEl);
-    return divEl;
-}
